@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    text-align: center;
+    background-color: antiquewhite;
+    color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+.home-page {
+    height: 60vh;
+    width: 80vw;
+    margin: auto ;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 10px;
+
+    width: 80%;
+    margin: 100px auto 50px;
+}
+
+.gallery img {
+    width: 100%;
+}
+
+.gallery img:hover {
+    cursor: pointer;
+}
