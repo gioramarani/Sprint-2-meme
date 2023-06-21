@@ -34,7 +34,9 @@ body{
 
 .hidden {
     opacity: 0;
+    pointer-events: none;
 }
+
 
 header {
     background-color: green;
@@ -61,4 +63,10 @@ button:hover {
     position: absolute;
     top: 200px;
     left:30px;
+}
+
+.control-box {
+    position: absolute;
+    top: 0;
+    left: 550px;
 }

@@ -20,7 +20,7 @@
             <input type="search" name="search">
         </div>
     <section class="gallery">
-        <img src="img/1.jpg" class="img" onclick="onPictureClicked(this)" alt="" srcset="">
+        <!-- <img src="img/1.jpg" class="1" id="1" onclick="onPictureClicked(this)" alt="" srcset="">
         <img src="img/2.jpg" class="img" onclick="onPictureClicked(this)" alt="" srcset="">
         <img src="img/3.jpg" class="img" onclick="onPictureClicked(this)" alt="" srcset="">
         <img src="img/4.jpg" class="img" onclick="onPictureClicked(this)" alt="" srcset="">
@@ -37,7 +37,7 @@
         <img src="img/15.jpg" class="img" onclick="onPictureClicked(this)" alt="" srcset="">
         <img src="img/16.jpg" class="img" onclick="onPictureClicked(this)" alt="" srcset="">
         <img src="img/17.jpg" class="img" onclick="onPictureClicked(this)" alt="" srcset="">
-        <img src="img/18.jpg" class="img" onclick="onPictureClicked(this)" alt="" srcset="">
+        <img src="img/18.jpg" class="img" onclick="onPictureClicked(this)" alt="" srcset=""> -->
     </section>
     </section>
 
@@ -46,7 +46,16 @@
             <canvas id="my-canvas" height="400" width="400">
                 <img src="img/1.jpg" alt="">
             </canvas>
-            <section class="control-box"></section>
+            <section class="control-box">
+                <form action="">
+                    <label for="text">Write here:</label>
+                    <input type="text" onkeydown="setLineText(this)" name="text">
+                    <button class="grow-size" onclick="changeSize('up')">⬆️</button>
+                    <button class="decrise-size" onclick="changeSize('down')">⬇️</button>
+                    <label class="color-pick" for="color">Pick a color</label>
+                    <input type="color" onchange="changeColor(event)">
+                </form>
+            </section>
         </div>
     </section>
 
@@ -54,7 +63,7 @@
 
     </section>
     <script src="js/services/meme.service.js"></script>
+    <script src="js/gallery.controller.js"></script>
     <script src="js/meme.controller.js"></script>
-    <script src="js/main.js"></script>
 </body>
 </html>
