@@ -2,13 +2,22 @@
 
 
 var gKeywordSearchCount = {}
+var gLineCounter = 1
 
 function getMeme(imgId) {
     gMeme = {
         selectedId: imgId,
         selectedLineIdx: 0,
-        lines: [{ txt: 'hello', size: '20px', color: 'white' }]
+        lines: [{ txt: 'hello', size: 20, color: 'white', y: 90}]
     }
+}
+
+function addLine(){
+    gMeme.lines[gLineCounter] = { txt: makeRandomWord(), size: 20, color: 'white', y: 90+ gLineCounter*20 }
+    console.log(gMeme.lines[gLineCounter])
+    console.log(gMeme)
+    
+    gLineCounter ++
 }
 
 function renderMeme(){
@@ -17,14 +26,20 @@ function renderMeme(){
     gCtx.drawImage(elImg, 0, 0, gElCanvas.clientWidth, gElCanvas.height)
 
     // if(!text) return
-    console.log(gMeme.selectedId)
+    // console.log(gMeme.selectedId)
     gCtx.strokeStyle = 'black'
     gCtx.fillStyle = gMeme.lines[0].color
-    // gCtx.textAlign = 'center'
-    gCtx.font = `${gMeme.lines[0].size} Impact`
+    gCtx.textAlign = 'center'
+    gCtx.font = `${gMeme.lines[0].size}px Impact`
     
-    gCtx.fillText(gMeme.lines[0].txt, 200, 90 )
-    gCtx.strokeText(gMeme.lines[0].txt, 200, 90 )
+    // gCtx.fillText(gMeme.lines[0].txt, 200, 90 )
+    // gCtx.strokeText(gMeme.lines[0].txt, 200, 90 )
+    for(var x=0; x<gLineCounter; x++){
+    console.log(gLineCounter)
+    gCtx.fillText(gMeme.lines[x].txt, 200, gMeme.lines[x].y )
+    gCtx.strokeText(gMeme.lines[x].txt, 200, gMeme.lines[x].y )
+}
+
 }
 
 function setLineText(ev) {
@@ -39,17 +54,18 @@ function setImage(imgId){
     console.log(gMeme.selectedId)
 }
 
-function changeSize(ev) {
-    if (ev === 'up') gMeme.lines.size += '6px'
-    else gMeme.lines.size -= '6px'
-    var size = gMeme.lines.size
-    console.log(size)
-    renderMeme(size)
+function changeSize(direction) {
+     if(direction === 'up') gMeme.lines[0].size +=5 
+     if(direction === 'down') gMeme.lines[0].size -=5 
+   
+    // renderMeme()
 }
 
 function changeColor(ev) {
     console.log(ev.target.value)
-    gMeme.lines.color = ev.target.value
-    var color = gMeme.lines.color
-    renderMeme(color)
+    gMeme.lines[0].color = ev.target.value
+    // console.log(gMeme.lines[0].color)
 }
+
+
+

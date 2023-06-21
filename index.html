@@ -48,20 +48,24 @@
             </canvas>
             <section class="control-box">
                 <form action="">
-                    <label for="text">Write here:</label>
-                    <input type="text" onkeydown="setLineText(this)" name="text">
-                    <button class="grow-size" onclick="changeSize('up')">⬆️</button>
-                    <button class="decrise-size" onclick="changeSize('down')">⬇️</button>
-                    <label class="color-pick" for="color">Pick a color</label>
-                    <input type="color" onchange="changeColor(event)">
                 </form>
+                <label for="text">Write here:</label>
+                <input type="text" onkeydown="setLineText(this)" name="text">
+                <button class="font-size" onclick="onChangeSize('up')">Increase font size</button>
+                <button class="font-size" onclick="onChangeSize('down')">Decrease font size</button>
+                <button class="add-line" onclick="onAddLine()">Add Line</button>
+                <button class="switch-line" onclick="onSwitchLine()">Switch Line</button>
+                <label class="color-pick" for="color">Pick a color</label>
+                <input type="color" onmousedown="onChangeColor(event)">
             </section>
+            <a href="#" class="btn-download" onclick="onDownloadImg(this)" download="my-meme.jpg">Download Meme</a>
         </div>
     </section>
 
     <section class="saved-memes">
 
     </section>
+    <script src="js/utils.js"></script>
     <script src="js/services/meme.service.js"></script>
     <script src="js/gallery.controller.js"></script>
     <script src="js/meme.controller.js"></script>
