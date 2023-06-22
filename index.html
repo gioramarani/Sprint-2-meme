@@ -16,8 +16,16 @@
     <h1>Meme Generator</h1>
     <section class="home-page">
         <div class="search">
-            <label for="search" >Search</label>
-            <input type="search" name="search">
+            <label for="filter" >Search picture by category</label>
+            <input type="search" name="filter" id="filter" list="categories" oninput="onGalleryFilter(value)">
+            <datalist id="categories">
+                <option value="animals"></option>
+                <option value="cute"></option>
+                <option value="exciting"></option>
+                <option value="funny"></option>
+                <option value="kids"></option>
+                <option value="movies"></option>
+            </datalist>
         </div>
         
         <button class="flexible" onclick="onFlexibleClicked()">I'm flexible</button>

@@ -38,6 +38,7 @@ const gWords = ['hello', 'there', 'whoever', 'you', 'are', 'love', 'is', 'the', 
 
   function saveToStorage(key, val) {
     localStorage.setItem(key, JSON.stringify(val))
+    
   }
   
   function loadFromStorage(key) {

@@ -8,10 +8,11 @@ var gX = 200
 var gElInputValue = document.querySelector('.text-input')
 var gLineClickedOn
 const MEME_KEY = 'memeDB'
+var gSavedMemes = []
 
 
 function getMeme(imgId) {
-    gMeme = {
+    return gMeme = {
         selectedId: imgId,
         selectedLineIdx: gSelectedLineIdx,
         lines: [{ txt: 'Place Your Text Here', size: 20, color: 'white',txtLength: 0,x: gX, y: 90, idx: gLineCounter-1 }],
@@ -85,7 +86,7 @@ function setImage(imgId){
 
 function changeSize(direction) {
      if(direction === 'up') gMeme.lines[gSelectedLineIdx].size +=5 
-     if(direction === 'down') gMeme.lines[gSelectedLineIdx].size -=5 
+     else if(direction === 'down') gMeme.lines[gSelectedLineIdx].size -=5 
      else gMeme.lines[gSelectedLineIdx].size = direction 
      console.log(gMeme.lines[gSelectedLineIdx])
 }
@@ -161,11 +162,17 @@ function canvasClicked(ev){
     }
 }
 
-function saveMemeToStorage(meme){
-    saveToStorage(MEME_KEY, meme)
+function addMemeToSavedMemes(meme){
+    gSavedMemes.push(meme)
+    saveMemeToStorage(gSavedMemes)
+}
+
+function saveMemeToStorage(savedMemes){
+    saveToStorage(MEME_KEY, savedMemes)
     alert('Meme Saved!')
 }
 
 function openSavedMemes(){
     loadFromStorage(MEME_KEY)
+    renderSavedMemeGallery(gSavedMemes)
 }
