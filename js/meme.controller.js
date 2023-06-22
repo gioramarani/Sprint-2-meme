@@ -62,6 +62,7 @@ function onAddLine() {
     renderMeme()
 }
 
-// function onSwitchLine(){
-//     switchLine()
-// }
+function onSwitchLine(direction){
+   if(direction==='down') switchLineDown()
+   if(direction==='up') switchLineUp()
+}

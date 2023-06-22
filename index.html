@@ -32,11 +32,12 @@
                 <form action="">
                 </form>
                 <label for="text">Write here:</label>
-                <input type="text" onkeydown="setLineText(this)" name="text">
+                <input type="text" onkeypress="setLineText(this)" name="text">
                 <button class="font-size" onclick="onChangeSize('up')">Increase font size</button>
                 <button class="font-size" onclick="onChangeSize('down')">Decrease font size</button>
                 <button class="add-line" onclick="onAddLine()">Add Line</button>
-                <button class="switch-line" onclick="onSwitchLine()">Switch Line</button>
+                <button class="switch-line" onclick="onSwitchLine('down')">Switch Line ⬇️ </button>
+                <button class="switch-line" onclick="onSwitchLine('up')">Switch Line ⬆️</button>
                 <label class="color-pick" for="color">Pick a color</label>
                 <input type="color" onmousedown="onChangeColor(event)">
             </section>
