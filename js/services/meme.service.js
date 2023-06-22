@@ -7,7 +7,7 @@ var gSelectedLineIdx = 0
 var gX = 200
 var gElInputValue = document.querySelector('.text-input')
 var gLineClickedOn
-var MEME_KEY = 'memeDB'
+const MEME_KEY = 'memeDB'
 var gSavedMemes = []
 
 
@@ -91,7 +91,6 @@ function changeSize(direction) {
 function changeColor(clr) {
     console.log(clr)
     gMeme.lines[gSelectedLineIdx].color = clr
-    // console.log(gMeme.lines[0].color)
 }
 
 function removeline(){
@@ -101,8 +100,8 @@ function removeline(){
 
 function alingText(textDirection){
     if(textDirection === 'left') gCtx.textAlign = 'left'
-    if(textDirection === 'right') gCtx.textAlign = 'right'
-    if(textDirection === 'center') gCtx.textAlign = 'center'
+    else if(textDirection === 'right') gCtx.textAlign = 'right'
+    else if(textDirection === 'center') gCtx.textAlign = 'center'
 }
 
 function switchLineDown(){
@@ -137,24 +136,16 @@ function drawRect(x, y) {
 //   }
 
 function canvasClicked(ev){
-    console.log('hello')
     const { offsetX, offsetY } = ev
-
     const clickedLine = gMeme.lines.find(line => {
-        console.log('x',line.x -200)
-        console.log('xEnd',line.x + 400)
-        console.log('y',line.y -line.size)
-        console.log('yEnd',line.y)
-        console.log('offsetX',offsetX)
-        console.log('offsetY',offsetY)
        return offsetX >= line.x -200 && offsetX <= line.x + 400 
        && offsetY >= line.y -line.size  && offsetY <= line.y
     })
     console.log(clickedLine)
     if(clickedLine){
         gSelectedLineIdx = clickedLine.idx
-        console.log(clickedLine.idx)
-        console.log(gSelectedLineIdx)
+        // console.log(clickedLine.idx)
+        // console.log(gSelectedLineIdx)
         drawRect(clickedLine.x, clickedLine.y)
     }
 }
@@ -172,8 +163,8 @@ function saveMemeToStorage(savedMemes){
 }
 
 function openSavedMemes(){
-    loadFromStorage(MEME_KEY)
-    console.log(MEME_KEY)
-    console.log(MEME_KEY.display)
-    // renderSavedMemeGallery(MEME_KEY)
+    var savedMemes = loadFromStorage(MEME_KEY)
+    console.log(savedMemes)
+    console.log(savedMemes[0].display)
+    renderSavedMemeGallery(savedMemes)
 }

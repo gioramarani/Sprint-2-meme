@@ -45,6 +45,7 @@ function onImgSelect(imgId) {
 
     renderMeme()
     gElHomePage.classList.add('hidden')
+    gElSavedMemes.classList.add('hidden')
     gElMemeEditor.classList.remove('hidden')
     gElMemeEditor.classList.add('position')
 

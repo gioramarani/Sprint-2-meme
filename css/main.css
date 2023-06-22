@@ -124,3 +124,23 @@ button:hover {
 .flexible{
     margin-top: 10px;
 }
+
+.saved-memes {
+    position: absolute;
+    top: 200px;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 10px;
+
+    width: 80%;
+    margin: 70px auto 50px;
+}
+
+.saved-memes img {
+    width: 100%;
+}
+
+.save-meme{
+    animation: bounce-v3 1s ;
+}
