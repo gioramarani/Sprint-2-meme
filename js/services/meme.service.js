@@ -7,7 +7,7 @@ var gSelectedLineIdx = 0
 var gX = 200
 var gElInputValue = document.querySelector('.text-input')
 var gLineClickedOn
-const MEME_KEY = 'memeDB'
+var MEME_KEY = 'memeDB'
 var gSavedMemes = []
 
 
@@ -40,9 +40,6 @@ function renderMeme(){
     // elImg.onload = () => {
     //     gCtx.drawImage(elImg, 0, 0, gElCanvas.clientWidth, gElCanvas.height)
     // }
-
-    // if(!text) return
-    // console.log(gMeme.selectedId)
     gCtx.strokeStyle = 'black'
     gCtx.fillStyle = gMeme.lines[gSelectedLineIdx].color
     
@@ -164,6 +161,8 @@ function canvasClicked(ev){
 
 function addMemeToSavedMemes(meme){
     gSavedMemes.push(meme)
+    console.log(meme)
+    console.log(gSavedMemes)
     saveMemeToStorage(gSavedMemes)
 }
 
@@ -174,5 +173,7 @@ function saveMemeToStorage(savedMemes){
 
 function openSavedMemes(){
     loadFromStorage(MEME_KEY)
-    renderSavedMemeGallery(gSavedMemes)
+    console.log(MEME_KEY)
+    console.log(MEME_KEY.display)
+    // renderSavedMemeGallery(MEME_KEY)
 }

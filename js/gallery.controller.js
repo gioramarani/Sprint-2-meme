@@ -5,6 +5,7 @@
 
 function renderGallery(imgs) {
     var elGallery = document.querySelector('.gallery')
+    console.log(imgs)
 
     var strHTMLs = imgs.map(img => {
           return  `<img src=${img.url} class="img${img.id}" onclick="onImgSelect(${img.id})">`

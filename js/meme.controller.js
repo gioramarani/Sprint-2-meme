@@ -61,8 +61,9 @@ function onDownloadImg(elLink) {
 }
 
 function onSaveMeme(){
-    const dataURL = gMeme.toDataURL()
-    addMemeToSavedMemes(dataURL)
+    const imgContent = gElCanvas.toDataURL('image/jpeg')
+    var memeToStorage = {service: gMeme, display: imgContent}
+    addMemeToSavedMemes(memeToStorage)
 }
 
 function onChangeSize(direction) {
@@ -124,8 +125,11 @@ function onFlexibleClicked() {
 
 function onGalleryFilter(filterBy){
     console.log(filterBy)
-    var gFilteredImgs = []
-    const gFilteredImg = gImgs.filter(img => {
-        img.keywords = filterBy
+    
+    var gFilteredImgs = gImgs.filter(img => {
+       return img.keywords[0] === filterBy || img.keywords[1] === filterBy
     })
+    
+    console.log(gFilteredImgs)
+    renderGallery(gFilteredImgs)
 }

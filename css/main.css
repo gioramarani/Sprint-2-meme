@@ -4,13 +4,13 @@
 
 body{
     text-align: center;
-    background-color: rgb(36, 103, 59);
+    background-color: rgb(94, 28, 186);
     color: white;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  
 }
 
 h1{
+    margin-top: 20px;
     margin-bottom: 90px;
 }
 .home-page {
@@ -29,13 +29,10 @@ h1{
 }
 
 .meme-editor{
-    /* display: grid;
-    grid-template-columns: 1fr 1fr; */
     columns: 2 210px;
     gap: 200px;
     width: 80%;
     margin: 30px auto 200px;
-
 }
 
 .text-input{
@@ -65,14 +62,11 @@ h1{
 
 .buttons2 {
     display: flex;
-    margin: auto;
+    margin: 15px auto;
+    align-content: space-between;
 }
 
 .control-box {
-    /* position: absolute; */
-    /* top: 0;
-    left: 550px; */
-    /* grid-area: 2/3; */
     display: grid;
     gap: 5px;   
 }
@@ -92,9 +86,9 @@ h1{
 
 
 header {
-    background-color: green;
+    background-color: rgb(56, 15, 241);
     /* color: whitesmoke; */
-    height: 60px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -112,10 +106,6 @@ button:hover {
 .logo {
     color: aliceblue;
 }
-
-/* .canvas-container {
-    margin: auto;
-} */
 
 .position {
     position: absolute;
