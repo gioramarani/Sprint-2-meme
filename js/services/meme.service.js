@@ -18,8 +18,9 @@ function getMeme(imgId) {
     }
 }
 
-function addLine(){
-    gMeme.lines[gLineCounter] = { txt:'Place Your Text Here', size: 20, color: 'white', txtLength: 0 ,x: gX, y: 90+ gLineCounter*30, idx: gLineCounter}
+function addLine(randomString){
+    if(randomString) gMeme.lines[gLineCounter] = { txt:randomString, size: 20, color: 'white', txtLength: 0 ,x: gX, y: 90+ gLineCounter*30, idx: gLineCounter}
+    else gMeme.lines[gLineCounter] = { txt:'Place Your Text Here', size: 20, color: 'white', txtLength: 0 ,x: gX, y: 90+ gLineCounter*30, idx: gLineCounter}
     console.log(gMeme.lines[gLineCounter])
     console.log(gMeme)
     
@@ -83,14 +84,15 @@ function setImage(imgId){
 function changeSize(direction) {
      if(direction === 'up') gMeme.lines[gSelectedLineIdx].size +=5 
      if(direction === 'down') gMeme.lines[gSelectedLineIdx].size -=5 
+     else gMeme.lines[gSelectedLineIdx].size = direction 
      console.log(gMeme.lines[gSelectedLineIdx])
    
 
 }
 
-function changeColor(ev) {
-    console.log(ev.target.value)
-    gMeme.lines[gSelectedLineIdx].color = ev.target.value
+function changeColor(clr) {
+    console.log(clr)
+    gMeme.lines[gSelectedLineIdx].color = clr
     // console.log(gMeme.lines[0].color)
 }
 

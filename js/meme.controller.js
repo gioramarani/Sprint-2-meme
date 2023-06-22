@@ -11,6 +11,11 @@ var gMeme = {}
 var gImgs = [{ id: 1, url: "img/1.jpg", keywords: ['celebrity', 'wierd'] },
 { id: 2, url: "img/2.jpg", keywords: ['animals', 'cute'] },
 { id: 3, url: "img/3.jpg", keywords: ['animals', 'cute'] },
+{ id: 4, url: "img/4.jpg", keywords: ['animals', 'cute'] },
+{ id: 5, url: "img/5.jpg", keywords: ['animals', 'cute'] },
+{ id: 6, url: "img/6.jpg", keywords: ['animals', 'cute'] },
+{ id: 7, url: "img/7.jpg", keywords: ['animals', 'cute'] },
+{ id: 8, url: "img/8.jpg", keywords: ['animals', 'cute'] }
 ]
 
 
@@ -57,8 +62,8 @@ function onChangeSize(direction) {
 }
 
 function onChangeColor(ev) {
-    console.log(ev)
-    changeColor(ev)
+    console.log(ev.target.value)
+    changeColor(ev.target.value)
     renderMeme()
 }
 
@@ -74,4 +79,26 @@ function onSwitchLine(direction) {
 
 function onCanvasClicked(ev) {
     canvasClicked(ev)
+}
+
+function onFlexibleClicked() {
+    const randomNum1 = getRandomIntInclusive(1, gImgs.length)
+    const randomNum2 = getRandomIntInclusive(1,5)
+    const randomNum3 = getRandomIntInclusive(20,60)
+    const randColor = getRandomColor()
+    setImage(randomNum1)
+
+    for(var x = 0; x < randomNum2; x++){
+    var randomString = getRandomStringFromArray(gWords)
+    setLineText(randomString)
+    addLine(randomString)
+    changeColor(randColor)
+    changeSize(randomNum3)
+    }
+    
+    renderMeme()
+
+    gElHomePage.classList.add('hidden')
+    gElMemeEditor.classList.remove('hidden')
+    gElMemeEditor.classList.add('position')
 }
