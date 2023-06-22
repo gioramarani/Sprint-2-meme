@@ -6,8 +6,8 @@ body{
     text-align: center;
     background-color: rgb(36, 103, 59);
     color: white;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  
 }
 .home-page {
     height: 60vh;
@@ -32,6 +32,37 @@ body{
     width: 80%;
     margin: 30px auto 200px;
 
+}
+
+.text-input{
+    border-radius: 1em;
+    height: 4em;
+    margin-bottom: 1em;
+}
+
+.color-input {
+    height: 2.6em;
+    border-radius: 1em;
+    width: 2em;
+}
+
+.buttons1 {
+    display: grid;
+    border: 3px solid black;
+    border-radius: 1em;
+    height: 5em;
+    width: 15em;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    justify-self: center;
+    align-self: center;
+    
+}
+
+.buttons2 {
+    display: flex;
+    /* margin-inline-start: 2em; */
+    margin: auto;
 }
 
 .control-box {
@@ -66,6 +97,11 @@ header {
     justify-content: space-around;
 }
 
+button {
+    width: max-content;
+    border-radius: 1em;
+}
+
 button:hover {
     cursor: pointer;
 }
@@ -90,4 +126,8 @@ button:hover {
     background-color: rgb(193, 49, 49);
     border: 1px solid black;
     border-radius: 1em;
+}
+
+.flexible{
+    margin-top: 10px;
 }

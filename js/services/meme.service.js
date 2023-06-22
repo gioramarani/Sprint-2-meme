@@ -7,6 +7,7 @@ var gSelectedLineIdx = 0
 var gX = 200
 var gElInputValue = document.querySelector('.text-input')
 var gLineClickedOn
+const MEME_KEY = 'memeDB'
 
 
 function getMeme(imgId) {
@@ -43,6 +44,7 @@ function renderMeme(){
     // console.log(gMeme.selectedId)
     gCtx.strokeStyle = 'black'
     gCtx.fillStyle = gMeme.lines[gSelectedLineIdx].color
+    
     gCtx.textAlign = 'center'
     gCtx.font = `${gMeme.lines[gSelectedLineIdx].size}px Impact`
     
@@ -86,14 +88,23 @@ function changeSize(direction) {
      if(direction === 'down') gMeme.lines[gSelectedLineIdx].size -=5 
      else gMeme.lines[gSelectedLineIdx].size = direction 
      console.log(gMeme.lines[gSelectedLineIdx])
-   
-
 }
 
 function changeColor(clr) {
     console.log(clr)
     gMeme.lines[gSelectedLineIdx].color = clr
     // console.log(gMeme.lines[0].color)
+}
+
+function removeline(){
+    // gMeme.lines.slice(gSelectedLineIdx)
+    gMeme.lines[gSelectedLineIdx].txt = ''
+}
+
+function alingText(textDirection){
+    if(textDirection === 'left') gCtx.textAlign = 'left'
+    if(textDirection === 'right') gCtx.textAlign = 'right'
+    if(textDirection === 'center') gCtx.textAlign = 'center'
 }
 
 function switchLineDown(){
@@ -104,10 +115,8 @@ function switchLineDown(){
         // gCtx.clearRectStroke(gX-40 ,gMeme.lines[gSelectedLineIdx].y, 80, 30)
         // gCtx.translate(gX-40 ,gMeme.lines[gSelectedLineIdx].y)
         // clearRectStroke(gX-40 ,gMeme.lines[gSelectedLineIdx].y)
-    
-   
+
 //    console.log(gMeme.lines[gSelectedLineIdx].txt)
-   
 }
 
 function switchLineUp(){
@@ -150,4 +159,13 @@ function canvasClicked(ev){
         console.log(gSelectedLineIdx)
         drawRect(clickedLine.x, clickedLine.y)
     }
+}
+
+function saveMemeToStorage(meme){
+    saveToStorage(MEME_KEY, meme)
+    alert('Meme Saved!')
+}
+
+function openSavedMemes(){
+    loadFromStorage(MEME_KEY)
 }

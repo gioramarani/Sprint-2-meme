@@ -16,9 +16,10 @@
     <h1>Meme Generator</h1>
     <section class="home-page">
         <div class="search">
-            <label for="search">Search</label>
+            <label for="search" >Search</label>
             <input type="search" name="search">
         </div>
+        
         <button class="flexible" onclick="onFlexibleClicked()">I'm flexible</button>
     <section class="gallery">
     </section>
@@ -30,18 +31,23 @@
                 <img src="img/1.jpg" alt="">
             </canvas>
             <section class="control-box">
-                <form action="">
-                </form>
-                <label for="text">Write here:</label>
-                <input type="text" class="text-input" oninput="OnSetLineText(this)" name="text" autofocus>
-                <button class="font-size" onclick="onChangeSize('up')">Increase font size</button>
-                <button class="font-size" onclick="onChangeSize('down')">Decrease font size</button>
-                <button class="add-line" onclick="onAddLine()">Add Line</button>
-                <button class="switch-line" onclick="onSwitchLine('down')">Switch Line ⬇️ </button>
-                <button class="switch-line" onclick="onSwitchLine('up')">Switch Line ⬆️</button>
-                <label class="color-pick" for="color">Pick a color</label>
-                <input type="color" oninput="onChangeColor(event)">
-                <a href="#" class="btn-download" onclick="onDownloadImg(this)" download="my-meme.jpg">Download Meme</a>
+                <input type="text" class="text-input" oninput="OnSetLineText(this)" name="text" placeholder="  Write Your Meme">
+                <div class="buttons1">
+                    <button class="font-size" onclick="onChangeSize('up')">Size⬆️</button>
+                    <button class="switch-line" onclick="onSwitchLine('up')">Line⬆️</button>
+                    <button class="align-text-right" onclick="onAlingText('right')">≪</button>
+                    <button class="align-text-center" onclick="onAlingText('center')">≣</button>
+                    <button class="add-line" onclick="onAddLine()">➕</button>
+                    <button class="font-size" onclick="onChangeSize('down')">Size⬇️</button>
+                    <button class="switch-line" onclick="onSwitchLine('down')">Line⬇️ </button>
+                    <button class="align-text-left" onclick="onAlingText('left')">≫</button>
+                    <input type="color" class="color-input" oninput="onChangeColor(event)">
+                    <button class="remove-line" onclick="onRemoveLine()">🚫</button>
+                </div>
+                <div class="buttons2">
+                    <a href="#" class="btn-download" onclick="onDownloadImg(this)" download="my-meme.jpg">Download Meme</a>
+                    <button class="save-meme" onclick="onSaveMeme()">Save Meme</button>
+                </div>
             </section>
         </div>
     </section>

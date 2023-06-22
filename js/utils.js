@@ -35,3 +35,13 @@ const gWords = ['hello', 'there', 'whoever', 'you', 'are', 'love', 'is', 'the', 
     // Return the element at the random index
     return array[randomIndex];
   }
+
+  function saveToStorage(key, val) {
+    localStorage.setItem(key, JSON.stringify(val))
+  }
+  
+  function loadFromStorage(key) {
+    const val = localStorage.getItem(key)
+    return JSON.parse(val)
+  }
+  
