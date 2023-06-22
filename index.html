@@ -25,21 +25,21 @@
 
     <section class="meme-editor">
         <div class="canvas-container">
-            <canvas id="my-canvas" height="400" width="400">
+            <canvas id="my-canvas" height="400" width="400" onmousedown="onCanvasClicked(event)">
                 <img src="img/1.jpg" alt="">
             </canvas>
             <section class="control-box">
                 <form action="">
                 </form>
                 <label for="text">Write here:</label>
-                <input type="text" onkeypress="setLineText(this)" name="text">
+                <input type="text" class="text-input" oninput="OnSetLineText(this)" name="text" autofocus>
                 <button class="font-size" onclick="onChangeSize('up')">Increase font size</button>
                 <button class="font-size" onclick="onChangeSize('down')">Decrease font size</button>
                 <button class="add-line" onclick="onAddLine()">Add Line</button>
                 <button class="switch-line" onclick="onSwitchLine('down')">Switch Line ⬇️ </button>
                 <button class="switch-line" onclick="onSwitchLine('up')">Switch Line ⬆️</button>
                 <label class="color-pick" for="color">Pick a color</label>
-                <input type="color" onmousedown="onChangeColor(event)">
+                <input type="color" oninput="onChangeColor(event)">
             </section>
             <a href="#" class="btn-download" onclick="onDownloadImg(this)" download="my-meme.jpg">Download Meme</a>
         </div>

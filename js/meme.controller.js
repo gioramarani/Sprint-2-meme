@@ -9,22 +9,22 @@ var gElSavedMemes = document.querySelector('.saved-memes')
 
 var gMeme = {}
 var gImgs = [{ id: 1, url: "img/1.jpg", keywords: ['celebrity', 'wierd'] },
-                { id: 2, url: "img/2.jpg", keywords: ['animals', 'cute'] },
-                { id: 3, url: "img/3.jpg", keywords: ['animals', 'cute'] },
+{ id: 2, url: "img/2.jpg", keywords: ['animals', 'cute'] },
+{ id: 3, url: "img/3.jpg", keywords: ['animals', 'cute'] },
 ]
 
 
 
-function onInit(){
+function onInit() {
     gElMemeEditor.classList.add('hidden')
     gElSavedMemes.classList.add('hidden')
-    
+
     gElCanvas = document.querySelector('#my-canvas')
     gCtx = gElCanvas.getContext('2d')
     renderGallery(gImgs)
 }
 
-function onOpenSavedMemes(){
+function onOpenSavedMemes() {
     gElHomePage.classList.add('hidden')
     gElSavedMemes.classList.remove('hidden')
 }
@@ -33,12 +33,17 @@ function onOpenSavedMemes(){
 function onImgSelect(imgId) {
     setImage(imgId)
     // var currImg = gImgs.find(img => img.id === imgId)
-    
+
     renderMeme()
     gElHomePage.classList.add('hidden')
     gElMemeEditor.classList.remove('hidden')
     gElMemeEditor.classList.add('position')
 
+}
+
+function OnSetLineText(ev) {
+    setLineText(ev.value)
+    renderMeme()
 }
 
 function onDownloadImg(elLink) {
@@ -62,7 +67,11 @@ function onAddLine() {
     renderMeme()
 }
 
-function onSwitchLine(direction){
-   if(direction==='down') switchLineDown()
-   if(direction==='up') switchLineUp()
+function onSwitchLine(direction) {
+    if (direction === 'down') switchLineDown()
+    if (direction === 'up') switchLineUp()
+}
+
+function onCanvasClicked(ev) {
+    canvasClicked(ev)
 }

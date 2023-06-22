@@ -1,6 +1,6 @@
 
   
- function makeRandomWord(length = 6) {
+ function makeRandomWord(length = 5) {
     var txt = ''
     var possible = 'abcdefghijklmnopqrstuvwxyz'
   
