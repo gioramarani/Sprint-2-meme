@@ -25,7 +25,22 @@ body{
 }
 
 .meme-editor{
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
+    columns: 2 210px;
+    gap: 200px;
+    width: 80%;
+    margin: 30px auto 50px;
+
+}
+
+.control-box {
+    /* position: absolute; */
+    /* top: 0;
+    left: 550px; */
+    /* grid-area: 2/3; */
     display: grid;
+    gap: 5px;   
 }
 
 .gallery img {
@@ -59,25 +74,14 @@ button:hover {
     color: aliceblue;
 }
 
-.canvas-container {
+/* .canvas-container {
     margin: auto;
-}
+} */
 
 .position {
     position: absolute;
     top: 200px;
     left:30px;
-}
-
-.control-box {
-    position: absolute;
-    top: 0;
-    left: 550px;
-    display: grid;
-    gap: 5px;
-    
-
-    
 }
 
 .btn-download {
