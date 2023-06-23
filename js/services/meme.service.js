@@ -8,7 +8,6 @@ var gX = 200
 var gElInputValue = document.querySelector('.text-input')
 var gLineClickedOn
 const MEME_KEY = 'memeDB'
-var gSavedMemes = []
 
 
 function getMeme(imgId) {
@@ -150,11 +149,10 @@ function canvasClicked(ev){
     }
 }
 
-function addMemeToSavedMemes(meme){
-    gSavedMemes.push(meme)
-    console.log(meme)
-    console.log(gSavedMemes)
-    saveMemeToStorage(gSavedMemes)
+function addMemeToSavedMemes(memes){
+    
+    console.log(memes)
+    saveMemeToStorage(memes)
 }
 
 function saveMemeToStorage(savedMemes){

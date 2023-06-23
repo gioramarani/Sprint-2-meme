@@ -18,6 +18,8 @@ var gImgs = [{ id: 1, url: "img/1.jpg", keywords: ['celebrity', 'wierd'] },
 { id: 8, url: "img/8.jpg", keywords: ['exciting', 'movies'] },
 { id: 9, url: "img/9.jpg", keywords: ['exciting', 'movies'] }
 ]
+var gSavedMemes = []
+
 
 
 
@@ -36,6 +38,13 @@ function onOpenSavedMemes() {
     gElSavedMemes.classList.remove('hidden')
 
     openSavedMemes()
+}
+
+function onOpenGallery(){
+    gElMemeEditor.classList.add('hidden')
+    gElSavedMemes.classList.add('hidden')
+    gElHomePage.classList.remove('hidden')
+
 }
 
 
@@ -62,9 +71,13 @@ function onDownloadImg(elLink) {
 }
 
 function onSaveMeme(){
-    const imgContent = gElCanvas.toDataURL('image/jpeg')
+    var imgContent = gElCanvas.toDataURL('image/jpeg')
     var memeToStorage = {service: gMeme, display: imgContent}
-    addMemeToSavedMemes(memeToStorage)
+    console.log(memeToStorage)
+    console.log(gSavedMemes)
+    gSavedMemes.push(memeToStorage)
+    console.log(gSavedMemes)
+    addMemeToSavedMemes(gSavedMemes)
 }
 
 function onChangeSize(direction) {
