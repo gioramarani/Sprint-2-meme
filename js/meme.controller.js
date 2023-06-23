@@ -48,16 +48,20 @@ function onOpenGallery(){
 }
 
 
-function onImgSelect(imgId) {
+function onImgSelect(imgId, origin) {
+    console.log(imgId)
+    console.log(origin)
     setImage(imgId)
+    if(origin === 'fromGallery'){
     // var currImg = gImgs.find(img => img.id === imgId)
-
     renderMeme()
+    } else{
+    renderMemeFromStorage()
+    }
     gElHomePage.classList.add('hidden')
     gElSavedMemes.classList.add('hidden')
     gElMemeEditor.classList.remove('hidden')
-    gElMemeEditor.classList.add('position')
-
+    gElMemeEditor.classList.add('position')   
 }
 
 function OnSetLineText(ev) {

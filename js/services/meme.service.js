@@ -29,11 +29,9 @@ function addLine(randomString){
 }
 
 function renderMeme(){
-    // var imgIdx = gMeme.selectedId - 1
 
     const elImg = document.querySelector(`.img${gMeme.selectedId}`)
     gCtx.drawImage(elImg, 0, 0, gElCanvas.clientWidth, gElCanvas.height)
-
     // const elImg = new Image()
     // elImg.src = `img/${gMeme.selectedId}.jpg`
     // elImg.onload = () => {
@@ -41,19 +39,33 @@ function renderMeme(){
     // }
     gCtx.strokeStyle = 'black'
     gCtx.fillStyle = gMeme.lines[gSelectedLineIdx].color
-    
     gCtx.textAlign = 'center'
     gCtx.font = `${gMeme.lines[gSelectedLineIdx].size}px Impact`
-    
-    // gCtx.fillText(gMeme.lines[0].txt, 200, 90 )
-    // gCtx.strokeText(gMeme.lines[0].txt, 200, 90 )
+
     for(var z=0; z<gLineCounter; z++){
     console.log(gLineCounter)
     gCtx.fillText(gMeme.lines[z].txt, gX, gMeme.lines[z].y )
     gCtx.strokeText(gMeme.lines[z].txt, gX, gMeme.lines[z].y )
-    // if(x = gSelectedLineIdx) gCtx.lineWidth = 4  // continue from here
 }
+}
+function renderMemeFromStorage(){
+    const elImg = document.querySelector(`.img${gMeme.selectedId}`)
+    gCtx.drawImage(elImg, 0, 0, gElCanvas.clientWidth, gElCanvas.height)
+    // const elImg = new Image()
+    // elImg.src = `img/${gMeme.selectedId}.jpg`
+    // elImg.onload = () => {
+    //     gCtx.drawImage(elImg, 0, 0, gElCanvas.clientWidth, gElCanvas.height)
+    // }
+    gCtx.strokeStyle = 'black'
+    gCtx.fillStyle = gMeme.lines[gSelectedLineIdx].color
+    gCtx.textAlign = 'center'
+    gCtx.font = `${gMeme.lines[gSelectedLineIdx].size}px Impact`
 
+    for(var z=0; z<gLineCounter; z++){
+    console.log(gLineCounter)
+    gCtx.fillText(gMeme.lines[z].txt, gX, gMeme.lines[z].y )
+    gCtx.strokeText(gMeme.lines[z].txt, gX, gMeme.lines[z].y )
+}
 }
 
 function setLineText(value) {
@@ -76,6 +88,9 @@ function setLineText(value) {
 
 function setImage(imgId){
     console.log(imgId)
+    // if(gElSavedMemes.hasAttribute('hidden')){
+    //     console.log('hey')
+    // }
     getMeme(imgId)
     console.log(gMeme.selectedId)
 }
@@ -151,7 +166,7 @@ function canvasClicked(ev){
 
 function addMemeToSavedMemes(memes){
     
-    console.log(memes)
+    // console.log(memes)
     saveMemeToStorage(memes)
 }
 
@@ -162,7 +177,8 @@ function saveMemeToStorage(savedMemes){
 
 function openSavedMemes(){
     var savedMemes = loadFromStorage(MEME_KEY)
-    console.log(savedMemes)
-    console.log(savedMemes[0].display)
+    // console.log(savedMemes)
+    // console.log(savedMemes[0].display)
     renderSavedMemeGallery(savedMemes)
+    
 }
