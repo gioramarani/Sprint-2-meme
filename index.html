@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
+   
     <title>Meme Generator</title>
 </head>
 <body onload="onInit()">
@@ -26,6 +27,9 @@
                 <option value="funny"></option>
                 <option value="kids"></option>
                 <option value="movies"></option>
+                <option value="politics"></option>
+                <option value="sports"></option>
+                <option value="violence"></option>
                 <option value="all"></option>
             </datalist>
         </div>
@@ -65,8 +69,8 @@
                 <div class="buttons2">
                     <a href="#" class="btn-download" onclick="onDownloadImg(this)" download="my-meme.jpg">Download Meme</a>
                     <button class="save-meme" onclick="onSaveMeme()">Save Meme</button>
-                    <button class="btn-facebook" onclick="onUploadToFacebook()">Upload to Facebook</button>
-                </div>
+                    <button class="btn-facebook" onclick="onUploadToFacebook()">Upload To Facebook</button>
+                </div> 
                 <div class="modal">
                     <h3>Meme Saved!</h3>
                     <button class="btn-modal-close" onclick="onCloseModal()">Keep on editing</button>
@@ -79,7 +83,6 @@
        
     </section>
     
-   
     <script src="js/utils.js"></script>
     <script src="js/facebook-share.js"></script>
     <script src="js/services/meme.service.js"></script>

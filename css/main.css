@@ -13,6 +13,12 @@ h1{
     margin-top: 20px;
     margin-bottom: 90px;
 }
+
+h1:hover {
+    color:  rgb(56, 15, 241);
+    scale: 1.4 1.4;
+}
+
 .home-page {
     height: 60vh;
     width: 80vw;
@@ -49,6 +55,10 @@ h1{
     height: 2.6em;
     border-radius: 1em;
     width: 2em;
+}
+
+.color-input:hover {
+    rotate: 20deg;
 }
 
 .buttons1 {
@@ -94,12 +104,6 @@ h1{
     pointer-events: none;
 }
 
-.hidden-1 {
-    opacity: -1;
-    pointer-events: none;
-}
-
-
 header {
     background-color: rgb(56, 15, 241);
     /* color: whitesmoke; */
@@ -120,6 +124,12 @@ button:hover {
 
 .logo {
     color: aliceblue;
+    font-size: 1.5rem;
+}
+
+.logo:hover {
+    scale: 1.2;
+    
 }
 
 .position {
@@ -137,8 +147,16 @@ button:hover {
     border-radius: 1em;
 }
 
+.btn-download:hover {
+    rotate: 20deg;
+}
+
 .flexible{
     margin-top: 20px;
+}
+
+button:hover{ 
+    rotate: 20deg;
 }
 
 .saved-memes {
@@ -184,4 +202,8 @@ button:hover {
 .btn-modal-toSaved {
     translate: 0 -0.5em;
     background-color: lightblue;
+}
+
+img:hover {
+    scale: 1.7 1.7;
 }
