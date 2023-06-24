@@ -26,6 +26,10 @@ h1{
 
     width: 80%;
     margin: 70px auto 50px;
+
+    background-color: lightblue;
+    padding: 25px;
+    border-radius: 2em;
 }
 
 .meme-editor{
@@ -60,6 +64,12 @@ h1{
     
 }
 
+.imojis{
+    display: flex;
+    margin: 15px auto;
+    height: 2em;
+    /* width: 3em; */
+}
 .buttons2 {
     display: flex;
     margin: 15px auto;
@@ -81,6 +91,11 @@ h1{
 
 .hidden {
     opacity: 0;
+    pointer-events: none;
+}
+
+.hidden-1 {
+    opacity: -1;
     pointer-events: none;
 }
 
@@ -116,13 +131,14 @@ button:hover {
 .btn-download {
     width: max-content;
     padding: 5px 15px;
-    background-color: rgb(193, 49, 49);
+    translate: 7.5em;
+    background-color:lightblue;
     border: 1px solid black;
     border-radius: 1em;
 }
 
 .flexible{
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .saved-memes {
@@ -141,6 +157,31 @@ button:hover {
     width: 100%;
 }
 
+.btn-facebook {
+    translate: -4.5em 3em;
+    background-color: lightblue;
+}
+
 .save-meme{
+    translate: -5em 3em;
     animation: bounce-v3 1s ;
+    background-color: lightblue;
+}
+
+.modal {
+    width: 15em;
+    height: 5em;
+    position: absolute;
+    translate: 5em 20em;
+    border-radius: 2em;
+    background-color: rgb(56, 15, 241);
+}
+
+.btn-modal-close{
+    translate: 0 -0.5em;
+    background-color: lightblue;
+}
+.btn-modal-toSaved {
+    translate: 0 -0.5em;
+    background-color: lightblue;
 }

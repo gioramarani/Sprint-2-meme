@@ -3,30 +3,31 @@
 var gElCanvas
 var gCtx
 
+const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 var gElHomePage = document.querySelector('.home-page')
 var gElMemeEditor = document.querySelector('.meme-editor')
 var gElSavedMemes = document.querySelector('.saved-memes')
+var gElModal = document.querySelector('.modal')
 
 var gMeme = {}
-var gImgs = [{ id: 1, url: "img/1.jpg", keywords: ['celebrity', 'wierd'] },
-{ id: 2, url: "img/2.jpg", keywords: ['animals', 'cute'] },
-{ id: 3, url: "img/3.jpg", keywords: ['animals', 'cute'] },
-{ id: 4, url: "img/4.jpg", keywords: ['funny', 'movies'] },
-{ id: 5, url: "img/5.jpg", keywords: ['kids', 'cute'] },
-{ id: 6, url: "img/6.jpg", keywords: ['funny', 'movies'] },
-{ id: 7, url: "img/7.jpg", keywords: ['kids', 'cute'] },
-{ id: 8, url: "img/8.jpg", keywords: ['exciting', 'movies'] },
-{ id: 9, url: "img/9.jpg", keywords: ['exciting', 'movies'] }
+var gImgs = [{ id: 1, url: "img/1.jpg", keywords: ['celebrity', 'wierd', 'all'] },
+{ id: 2, url: "img/2.jpg", keywords: ['animals', 'cute', 'all' ] },
+{ id: 3, url: "img/3.jpg", keywords: ['animals', 'cute', 'all'] },
+{ id: 4, url: "img/4.jpg", keywords: ['funny', 'movies', 'all'] },
+{ id: 5, url: "img/5.jpg", keywords: ['kids', 'cute', 'all'] },
+{ id: 6, url: "img/6.jpg", keywords: ['funny', 'movies', 'all'] },
+{ id: 7, url: "img/7.jpg", keywords: ['kids', 'cute', 'all'] },
+{ id: 8, url: "img/8.jpg", keywords: ['exciting', 'movies', 'all'] },
+{ id: 9, url: "img/9.jpg", keywords: ['exciting', 'movies', 'all'] }
 ]
 var gSavedMemes = []
-
 
 
 
 function onInit() {
     gElMemeEditor.classList.add('hidden')
     gElSavedMemes.classList.add('hidden')
-
+    
     gElCanvas = document.querySelector('#my-canvas')
     gCtx = gElCanvas.getContext('2d')
     renderGallery(gImgs)
@@ -47,7 +48,6 @@ function onOpenGallery(){
 
 }
 
-
 function onImgSelect(imgId, origin) {
     console.log(imgId)
     console.log(origin)
@@ -62,6 +62,7 @@ function onImgSelect(imgId, origin) {
     gElSavedMemes.classList.add('hidden')
     gElMemeEditor.classList.remove('hidden')
     gElMemeEditor.classList.add('position')   
+    gElModal.classList.add('hidden')
 }
 
 function OnSetLineText(ev) {
@@ -82,11 +83,12 @@ function onSaveMeme(){
     gSavedMemes.push(memeToStorage)
     console.log(gSavedMemes)
     addMemeToSavedMemes(gSavedMemes)
+    gElModal.classList.remove('hidden')
 }
 
 function onChangeSize(direction) {
     changeSize(direction)
-    renderMeme()
+    // renderMeme()
 }
 
 function onRemoveLine(){
@@ -145,9 +147,47 @@ function onGalleryFilter(filterBy){
     console.log(filterBy)
     
     var gFilteredImgs = gImgs.filter(img => {
-       return img.keywords[0] === filterBy || img.keywords[1] === filterBy
+       return img.keywords[0] === filterBy || img.keywords[1] === filterBy || img.keywords[2] === filterBy
     })
     
     console.log(gFilteredImgs)
     renderGallery(gFilteredImgs)
+}
+
+function onAddImojis(ev){
+    console.log(ev)
+    setImoji(ev)
+    renderMeme()
+}
+
+function addListeners() {
+    addMouseListeners()
+    addTouchListeners()
+    // renderMeme()
+}
+
+function addMouseListeners() {
+    gElCanvas.addEventListener('mousedown', onDown)
+    gElCanvas.addEventListener('mousemove', onMove)
+    gElCanvas.addEventListener('mouseup', onUp)
+  }
+  
+  function addTouchListeners() {
+    gElCanvas.addEventListener('touchstart', onDown)
+    gElCanvas.addEventListener('touchmove', onMove)
+    gElCanvas.addEventListener('touchend', onUp)
+  }
+
+  function onDown(ev) {
+    const pos = getEvPos(ev)
+
+    if(!isInputClicked(pos)) return
+  }
+
+function onCloseModal(ev) {
+  gElModal.classList.add('hidden')
+
+    if(ev === 'toSaved'){
+        onOpenSavedMemes()
+    } 
 }

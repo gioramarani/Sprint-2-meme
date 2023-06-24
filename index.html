@@ -26,9 +26,10 @@
                 <option value="funny"></option>
                 <option value="kids"></option>
                 <option value="movies"></option>
+                <option value="all"></option>
             </datalist>
         </div>
-        
+      
         <button class="flexible" onclick="onFlexibleClicked()">I'm flexible</button>
     <section class="gallery">
     </section>
@@ -53,18 +54,34 @@
                     <input type="color" class="color-input" oninput="onChangeColor(event)">
                     <button class="remove-line" onclick="onRemoveLine()">🚫</button>
                 </div>
+                <div class="imojis">
+                    <button onclick="onAddImojis('😀')">😀</button>
+                    <button onclick="onAddImojis('😵‍💫')">😵‍💫</button>
+                    <button onclick="onAddImojis('🤣')">🤣</button>
+                    <button onclick="onAddImojis('😉')">😉</button>
+                    <button onclick="onAddImojis('🤔')">🤔</button>
+                    <button onclick="onAddImojis('😍')">😍</button>
+                </div>
                 <div class="buttons2">
                     <a href="#" class="btn-download" onclick="onDownloadImg(this)" download="my-meme.jpg">Download Meme</a>
                     <button class="save-meme" onclick="onSaveMeme()">Save Meme</button>
+                    <button class="btn-facebook" onclick="onUploadToFacebook()">Upload to Facebook</button>
+                </div>
+                <div class="modal">
+                    <h3>Meme Saved!</h3>
+                    <button class="btn-modal-close" onclick="onCloseModal()">Keep on editing</button>
+                    <button class="btn-modal-toSaved" onclick="onCloseModal('toSaved')">To Saved Memes</button>
                 </div>
             </section>
         </div>
     </section>
-
     <section class="saved-memes">
-
+       
     </section>
+    
+   
     <script src="js/utils.js"></script>
+    <script src="js/facebook-share.js"></script>
     <script src="js/services/meme.service.js"></script>
     <script src="js/gallery.controller.js"></script>
     <script src="js/meme.controller.js"></script>
