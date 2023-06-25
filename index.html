@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <script src="https://kit.fontawesome.com/bceab60edc.js" crossorigin="anonymous"></script>
     <title>Meme Generator</title>
 </head>
+
 <body onload="onInit()">
     <header class="home-page-header">
         <a href="index.html" class="logo">😎Meme me!</a>
@@ -16,47 +18,54 @@
         </nav>
     </header>
     <main>
-    <h1>Meme Generator</h1>
-    <section class="home-page">
-        <div class="search">
-            <label for="filter" >Search picture by category</label>
-            <input type="search" name="filter" id="filter" list="categories" oninput="onGalleryFilter(value)">
-            <datalist id="categories">
-                <option value="animals"></option>
-                <option value="cute"></option>
-                <option value="exciting"></option>
-                <option value="funny"></option>
-                <option value="kids"></option>
-                <option value="movies"></option>
-                <option value="politics"></option>
-                <option value="sports"></option>
-                <option value="violence"></option>
-                <option value="all"></option>
-            </datalist>
-        </div>
-      
-        <button class="flexible" onclick="onFlexibleClicked()">I'm flexible</button>
-        <section class="gallery-container">
-    <section class="gallery">
-    </section>
-</section>
-    </section>
+        <h1>Meme Generator</h1>
+        <section class="home-page">
+            <div class="search">
+                <label for="filter">Search picture by category</label>
+                <input type="search" name="filter" id="filter" list="categories" oninput="onGalleryFilter(value)">
+                <datalist id="categories">
+                    <option value="animals"></option>
+                    <option value="cute"></option>
+                    <option value="exciting"></option>
+                    <option value="funny"></option>
+                    <option value="kids"></option>
+                    <option value="movies"></option>
+                    <option value="politics"></option>
+                    <option value="sports"></option>
+                    <option value="violence"></option>
+                    <option value="all"></option>
+                </datalist>
+            </div>
 
-    <section class="meme-editor">
-        <div class="canvas-container">
-            <canvas id="my-canvas" height="400" width="400" onmousedown="onCanvasClicked(event)">
-                <img src="img/1.jpg" alt="">
-            </canvas>
+            <button class="flexible" onclick="onFlexibleClicked()">I'm flexible</button>
+            <section class="gallery-container">
+                <section class="gallery">
+                </section>
+            </section>
+        </section>
+
+        <section class="meme-editor">
+            <div class="canvas-container">
+                <canvas id="my-canvas" height="400" width="400" onmousedown="onCanvasClicked(event)">
+                    <img src="img/1.jpg" alt="">
+                </canvas>
+            </div>
             <section class="control-box">
-                <input type="text" class="text-input" oninput="OnSetLineText(this)" name="text" placeholder="  Write Your Meme">
+                <input type="text" class="text-input" oninput="OnSetLineText(this)" name="text"
+                    placeholder="  Write Your Meme">
                 <div class="buttons1">
                     <button class="font-size" onclick="onChangeSize('up')">Size⬆️</button>
-                    <button class="switch-line" onclick="onSwitchLine('up')"><i class="fa-solid fa-arrow-up"></i></button>
-                    <button class="align-text-left" onclick="onAlignText('left')"><i class="fa-solid fa-align-left"></i></button>
-                    <button class="align-text-center" onclick="onAlignText('center')"><i class="fa-solid fa-align-justify"></i></button>
-                    <button class="align-text-right" onclick="onAlignText('right')"><i class="fa-solid fa-align-right"></i></button>
+                    <button class="switch-line" onclick="onSwitchLine('up')"><i
+                            class="fa-solid fa-arrow-up"></i></button>
+                    <button class="align-text-left" onclick="onAlignText('left')"><i
+                            class="fa-solid fa-align-left"></i></button>
+                    <button class="align-text-center" onclick="onAlignText('center')"><i
+                            class="fa-solid fa-align-justify"></i></button>
+                    <button class="align-text-right" onclick="onAlignText('right')"><i
+                            class="fa-solid fa-align-right"></i></button>
                     <button class="font-size" onclick="onChangeSize('down')">Size⬇️</button>
-                    <button class="switch-line" onclick="onSwitchLine('down')"><i class="fa-solid fa-arrow-down"></i> </button>
+                    <button class="switch-line" onclick="onSwitchLine('down')"><i class="fa-solid fa-arrow-down"></i>
+                    </button>
                     <button class="add-line" onclick="onAddLine()"><i class="fa-solid fa-plus"></i></button>
                     <button class="remove-line" onclick="onRemoveLine()"><i class="fa-solid fa-trash-can"></i></button>
                     <input type="color" class="color-input" oninput="onChangeColor(event)">
@@ -71,24 +80,25 @@
                 </div>
                 <div class="buttons2">
                     <!-- <button lass="btn-download" onclick="onDownloadImg(this)" download="my-meme.jpg" ><i class="fa-solid fa-download"></i></button> -->
-                    <a href="#" class="btn-download" onclick="onDownloadImg(this)" download="my-meme.jpg"><i class="fa-solid fa-download"></i></a>
+                    <a href="#" class="btn-download" onclick="onDownloadImg(this)" download="my-meme.jpg"><i
+                            class="fa-solid fa-download"></i></a>
                     <button class="save-meme" onclick="onSaveMeme()"><i class="fa-regular fa-bookmark"></i></button>
                     <button class="btn-facebook" onclick="onUploadToFacebook()">
                         <i class="fa-brands fa-square-facebook"></i>
                     </button>
-                </div> 
+                </div>
                 <div class="modal">
                     <h3>Meme Saved!</h3>
                     <button class="btn-modal-close" onclick="onCloseModal()">Keep on editing</button>
                     <button class="btn-modal-toSaved" onclick="onCloseModal('toSaved')">To Saved Memes</button>
                 </div>
             </section>
-        </div>
-    </section>
-    <section class="saved-memes">
-       
-    </section>
-</main>
+
+        </section>
+        <section class="saved-memes">
+
+        </section>
+    </main>
 
     <footer>
         <p>@2023 Meme-Me - coffee rights</p>
@@ -104,11 +114,12 @@
             </li>
         </ul>
     </footer>
-    
+
     <script src="js/utils.js"></script>
     <script src="js/facebook-share.js"></script>
     <script src="js/services/meme.service.js"></script>
     <script src="js/gallery.controller.js"></script>
     <script src="js/meme.controller.js"></script>
 </body>
+
 </html>
