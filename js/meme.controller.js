@@ -61,17 +61,18 @@ function onImgSelect(imgId, origin) {
     console.log(imgId)
     console.log(origin)
     setImage(imgId)
+    gElHomePage.classList.add('hidden')
+    gElSavedMemes.classList.add('hidden')
+    gElMemeEditor.classList.remove('hidden')
+    // gElMemeEditor.classList.add('position')   
+    gElModal.classList.add('hidden')
+    
     if(origin === 'fromGallery'){
     // var currImg = gImgs.find(img => img.id === imgId)
     renderMeme()
     } else{
     renderMemeFromStorage()
     }
-    gElHomePage.classList.add('hidden')
-    gElSavedMemes.classList.add('hidden')
-    gElMemeEditor.classList.remove('hidden')
-    gElMemeEditor.classList.add('position')   
-    gElModal.classList.add('hidden')
 }
 
 function OnSetLineText(ev) {
@@ -97,7 +98,7 @@ function onSaveMeme(){
 
 function onChangeSize(direction) {
     changeSize(direction)
-    // renderMeme()
+    renderMeme()
 }
 
 function onRemoveLine(){
@@ -116,8 +117,9 @@ function onAddLine() {
     renderMeme()
 }
 
-function onAlingText(textDirection){
-    alingText(textDirection)
+function onAlignText(textDirection){
+    alignText(textDirection)
+    console.log(textDirection)
     renderMeme()
 }
 
@@ -154,6 +156,7 @@ function onFlexibleClicked() {
 
 function onGalleryFilter(filterBy){
     console.log(filterBy)
+    if(filterBy === '') filterBy = 'all'
     
     var gFilteredImgs = gImgs.filter(img => {
        return img.keywords[0] === filterBy || img.keywords[1] === filterBy || img.keywords[2] === filterBy

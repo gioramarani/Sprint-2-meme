@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-   
+    <script src="https://kit.fontawesome.com/bceab60edc.js" crossorigin="anonymous"></script>
     <title>Meme Generator</title>
 </head>
 <body onload="onInit()">
     <header class="home-page-header">
         <a href="index.html" class="logo">😎Meme me!</a>
         <nav>
-            <button onclick="onOpenGallery()">Gallery</button>
-            <button onclick="onOpenSavedMemes()">Saved Memes</button>
+            <i onclick="onOpenSavedMemes()">Saved Memes</i>
+            <i onclick="onOpenGallery()">Gallery</i>
         </nav>
     </header>
+    <main>
     <h1>Meme Generator</h1>
     <section class="home-page">
         <div class="search">
@@ -35,8 +36,10 @@
         </div>
       
         <button class="flexible" onclick="onFlexibleClicked()">I'm flexible</button>
+        <section class="gallery-container">
     <section class="gallery">
     </section>
+</section>
     </section>
 
     <section class="meme-editor">
@@ -48,15 +51,15 @@
                 <input type="text" class="text-input" oninput="OnSetLineText(this)" name="text" placeholder="  Write Your Meme">
                 <div class="buttons1">
                     <button class="font-size" onclick="onChangeSize('up')">Size⬆️</button>
-                    <button class="switch-line" onclick="onSwitchLine('up')">Line⬆️</button>
-                    <button class="align-text-right" onclick="onAlingText('right')">≪</button>
-                    <button class="align-text-center" onclick="onAlingText('center')">≣</button>
-                    <button class="add-line" onclick="onAddLine()">➕</button>
+                    <button class="switch-line" onclick="onSwitchLine('up')"><i class="fa-solid fa-arrow-up"></i></button>
+                    <button class="align-text-left" onclick="onAlignText('left')"><i class="fa-solid fa-align-left"></i></button>
+                    <button class="align-text-center" onclick="onAlignText('center')"><i class="fa-solid fa-align-justify"></i></button>
+                    <button class="align-text-right" onclick="onAlignText('right')"><i class="fa-solid fa-align-right"></i></button>
                     <button class="font-size" onclick="onChangeSize('down')">Size⬇️</button>
-                    <button class="switch-line" onclick="onSwitchLine('down')">Line⬇️ </button>
-                    <button class="align-text-left" onclick="onAlingText('left')">≫</button>
+                    <button class="switch-line" onclick="onSwitchLine('down')"><i class="fa-solid fa-arrow-down"></i> </button>
+                    <button class="add-line" onclick="onAddLine()"><i class="fa-solid fa-plus"></i></button>
+                    <button class="remove-line" onclick="onRemoveLine()"><i class="fa-solid fa-trash-can"></i></button>
                     <input type="color" class="color-input" oninput="onChangeColor(event)">
-                    <button class="remove-line" onclick="onRemoveLine()">🚫</button>
                 </div>
                 <div class="imojis">
                     <button onclick="onAddImojis('😀')">😀</button>
@@ -67,9 +70,12 @@
                     <button onclick="onAddImojis('😍')">😍</button>
                 </div>
                 <div class="buttons2">
-                    <a href="#" class="btn-download" onclick="onDownloadImg(this)" download="my-meme.jpg">Download Meme</a>
+                    <!-- <button lass="btn-download" onclick="onDownloadImg(this)" download="my-meme.jpg" ><i class="fa-solid fa-download"></i></button> -->
+                    <a href="#" class="btn-download" onclick="onDownloadImg(this)" download="my-meme.jpg"><i class="fa-solid fa-download"></i></a>
                     <button class="save-meme" onclick="onSaveMeme()">Save Meme</button>
-                    <button class="btn-facebook" onclick="onUploadToFacebook()">Upload To Facebook</button>
+                    <button class="btn-facebook" onclick="onUploadToFacebook()">
+                        <i class="fa-brands fa-square-facebook"></i>
+                    </button>
                 </div> 
                 <div class="modal">
                     <h3>Meme Saved!</h3>
@@ -82,6 +88,22 @@
     <section class="saved-memes">
        
     </section>
+</main>
+
+    <footer>
+        <p>@2023 Meme-Me - coffee rights</p>
+        <ul>
+            <li class="facebook">
+                <a href=""></a>
+            </li>
+            <li class="twiter">
+                <a href=""></a>
+            </li>
+            <li class="instagram">
+                <a href=""></a>
+            </li>
+        </ul>
+    </footer>
     
     <script src="js/utils.js"></script>
     <script src="js/facebook-share.js"></script>

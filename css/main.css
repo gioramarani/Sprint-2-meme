@@ -4,20 +4,22 @@
 
 body{
     text-align: center;
-    background-color: rgb(94, 28, 186);
-    color: white;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: grid;
 }
 
 h1{
     margin-top: 20px;
-    margin-bottom: 90px;
+    margin-bottom: 20px;
+    /* font-family: ; */
 }
 
-h1:hover {
+/* h1:hover {
     color:  rgb(56, 15, 241);
     scale: 1.4 1.4;
-}
+} */
 
 .home-page {
     height: 60vh;
@@ -25,48 +27,63 @@ h1:hover {
     margin: auto ;
 }
 
+i:hover {
+    cursor: pointer;
+}
+
+.gallery-container {
+    background-color: lightblue;
+    border-radius: 2em;
+    width: 80vw;
+    /* margin-inline-end: 20vw; */
+}
+
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-gap: 10px;
-
-    width: 80%;
-    margin: 70px auto 50px;
-
-    background-color: lightblue;
+    width: 100%;
     padding: 25px;
-    border-radius: 2em;
 }
 
 .meme-editor{
+    /* display: flex;
+    flex-direction: column; */
+    /* flex-flow: column; */
     columns: 2 210px;
     gap: 200px;
     width: 80%;
-    margin: 30px auto 200px;
+   
 }
 
 .text-input{
     border-radius: 1em;
     height: 4em;
+    width: 27em;
     margin-bottom: 1em;
 }
 
 .color-input {
-    height: 2.6em;
+    height: 4em;
     border-radius: 1em;
-    width: 2em;
+    width: 4em;
+    transition: 300ms;
 }
 
 .color-input:hover {
-    rotate: 20deg;
+    scale: 1.1;
+    rotate: 10deg;
 }
 
 .buttons1 {
     display: grid;
     border: 3px solid black;
+    background-color: lightblue;
     border-radius: 1em;
-    height: 5em;
-    width: 15em;
+    height: 9em;
+    width: 20em;
+    gap: 0.5em;
+    padding: 5px 5px;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     justify-self: center;
@@ -78,17 +95,22 @@ h1:hover {
     display: flex;
     margin: 15px auto;
     height: 2em;
+    /* padding: 2em; */
+    /* background-color: blue; */
     /* width: 3em; */
 }
 .buttons2 {
     display: flex;
     margin: 15px auto;
     align-content: space-between;
+    /* background-color: lightblue; */
+    /* height: 5em; */
 }
 
 .control-box {
     display: grid;
-    gap: 5px;   
+    gap: 5px;  
+    justify-content: center;
 }
 
 .gallery img {
@@ -99,13 +121,9 @@ h1:hover {
     cursor: pointer;
 }
 
-.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
 
 header {
-    background-color: rgb(56, 15, 241);
+    background-color: lightblue;
     /* color: whitesmoke; */
     height: 80px;
     display: flex;
@@ -113,49 +131,74 @@ header {
     justify-content: space-around;
 }
 
+nav > * {
+    margin-inline-start: 1em;
+    transition: 400ms;
+}
+
+nav > i:hover {
+    /* text underline */
+    color: aliceblue;
+}
+
 button {
-    width: max-content;
+    width: 4em;
+    height:4em;
     border-radius: 1em;
 }
 
-button:hover {
+.buttons1 > button:hover {
     cursor: pointer;
+    scale: 1.1;
+    rotate: 10deg;
+}
+
+.buttons2 > button:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+
+.imojis > button:hover {
+    cursor: pointer;
+    scale: 1.1;
 }
 
 .logo {
-    color: aliceblue;
-    font-size: 1.5rem;
+    color: rgb(11, 22, 247);
+    font-size: 1.7rem;
+    transition: 600ms;
+    text-decoration: none;
 }
 
 .logo:hover {
     scale: 1.2;
+    color: aliceblue;
     
 }
 
-.position {
-    position: absolute;
-    top: 200px;
-    left:30px;
-}
-
 .btn-download {
-    width: max-content;
-    padding: 5px 15px;
-    translate: 7.5em;
-    background-color:lightblue;
-    border: 1px solid black;
+    text-decoration: none;
+    color: black;
+    transition: 500ms;
+    /* background-color: lightblue; */
+    border: 2px solid black;
     border-radius: 1em;
+    width: 3em;
+    /* width: min-content; */
 }
 
 .btn-download:hover {
-    rotate: 20deg;
+    scale: 1.1;
 }
 
 .flexible{
     margin-top: 20px;
+    margin-bottom: 5px;
+    height: 40px;
+    transition: 500ms;
 }
 
-button:hover{ 
+.flexible:hover{ 
     rotate: 20deg;
 }
 
@@ -175,16 +218,16 @@ button:hover{
     width: 100%;
 }
 
-.btn-facebook {
+/* .btn-facebook {
     translate: -4.5em 3em;
     background-color: lightblue;
-}
+} */
 
-.save-meme{
+/* .save-meme{
     translate: -5em 3em;
     animation: bounce-v3 1s ;
     background-color: lightblue;
-}
+} */
 
 .modal {
     width: 15em;
@@ -204,6 +247,44 @@ button:hover{
     background-color: lightblue;
 }
 
+img {
+    border-radius: 1em;
+    transition: 600ms;
+}
+
 img:hover {
-    scale: 1.7 1.7;
+    scale: 1.1 1.1;
+}
+
+footer {
+    background-color: lightblue;
+    position: fixed;
+    bottom: 1px;
+    height: 50px;
+    width: 100%;
+}
+
+footer p {
+    text-align: left;
+    color: aliceblue;
+}
+.hidden {
+    /* opacity: 0; */
+    display: none;
+    pointer-events: none;
+}
+
+.canvas-container {
+    margin-inline-start: 40px;
+}
+
+@media (max-width: 810px){
+
+}
+
+
+@media (max-width: 510px) {
+    .canvas-container {
+        margin-inline-start: 10px;
+    }
 }
