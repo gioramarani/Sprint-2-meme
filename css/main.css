@@ -95,6 +95,7 @@ i:hover {
     display: flex;
     margin: 15px auto;
     height: 2em;
+    gap: 0.1em;
     /* padding: 2em; */
     /* background-color: blue; */
     /* width: 3em; */
@@ -103,6 +104,7 @@ i:hover {
     display: flex;
     margin: 15px auto;
     align-content: space-between;
+    gap: 1.9em;
     /* background-color: lightblue; */
     /* height: 5em; */
 }
